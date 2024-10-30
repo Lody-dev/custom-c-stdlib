@@ -9,15 +9,20 @@
 /*   Updated: 2024/09/19 12:00:03 by viaremko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-void *memchr(const void *s, int c, unsigned int n){
-char *str = (unsigned char *)s;
-unsigned int i = 0;
-while(i < n){
-if(str[i] == (unsigned char)c){
-return &s[i];
-}
-i++;
-}
-return NULL;
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	unsigned char	*str;
+	unsigned int	i;
+
+	str = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		if (str[i] == (unsigned char)c)
+			return ((void *)&str[i]);
+		i++;
+	}
+	return (NULL);
 }

@@ -9,13 +9,19 @@
 /*   Updated: 2024/09/17 14:09:36 by viaremko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-void *memset(void *s, int c, unsigned int n){
-unsigned char *a = s;
+#include "libft.h"
 
-while(a[i] && i<n){
-a[i] = c;
-i++;
+void	*ft_memset(void *b, int c, size_t len)
+{
+	size_t			i;
+	unsigned char	*ptr;
+
+	i = 0;
+	ptr = (unsigned char *)b;
+	while (i < len)
+	{
+		ptr[i] = (unsigned char)c;
+		i++;
 	}
-return(s);
+	return (b);
 }
-

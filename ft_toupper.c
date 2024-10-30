@@ -9,10 +9,11 @@
 /*   Updated: 2024/09/11 16:40:18 by viaremko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-int ft_toupper(int c){
-if (c >= 97 && c <= 122){
-return (c - 32);
-}
-return(c);
+int	ft_toupper(int c)
+{
+	if (c >= 97 && c <= 122)
+		return (c - 32);
+	return (c);
 }

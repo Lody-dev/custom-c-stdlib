@@ -9,28 +9,44 @@
 /*   Updated: 2024/09/18 13:38:59 by viaremko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-void *ft_memmove(void *dest, const void *src, unsigned int n){
-char *s=(char *)src;
-char *d=(char *)dest;
-unsigned int i = 0;
-if(d == s){
-	return dest;
-}
+#include "libft.h"
 
-if (d < s){
-	while(i < n){
-	d[i]=s[i];
-	i++;
+static void	memmove_forward(char *d, const char *s, unsigned int n)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
 	}
-return dest;
 }
 
-else{
+static void	memmove_backward(char *d, const char *s, unsigned int n)
+{
+	unsigned int	i;
+
 	i = n;
-		while (i > 0){
-		d[i-1]=s[i-1];
+	while (i > 0)
+	{
+		d[i - 1] = s[i - 1];
 		i--;
 	}
-return dest;
 }
+
+void	*ft_memmove(void *dest, const void *src, unsigned int n)
+{
+	char			*s;
+	char			*d;
+
+	s = (char *)src;
+	d = (char *)dest;
+	if (d == s || n == 0)
+		return (dest);
+	if (d < s)
+		memmove_forward(d, s, n);
+	else
+		memmove_backward(d, s, n);
+	return (dest);
 }

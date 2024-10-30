@@ -9,25 +9,32 @@
 /*   Updated: 2024/09/20 11:17:47 by viaremko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-char *strnstr(const char *big, const char *little, unsigned int len){
-unsigned int i = 0;
-unsigned int little_len = 0;
+char	*ft_strnstr(const char *big, const char *little, unsigned int len)
+{
+	unsigned int	i;
+	unsigned int	little_len;
+	unsigned int	j;
 
-if (*little =='\0'){
-return (char *)big;
-}
-while (little[little_len] != '\0') {
-        little_len++;
-    }
-while(i + little_len <= len){
-	unsigned int j = 0;
-	while(big[j+i]==little[j]){
-		if(j==little_len){
-			return(char *)big +i;
-			}
+	i = 0;
+	little_len = 0;
+	if (*little == '\0')
+		return ((char *)big);
+	if (*big == '\0')
+		return (0);
+	while (little[little_len] != '\0')
+		little_len++;
+	while (i + little_len <= len)
+	{
+		j = 0;
+		while (big[j + i] == little[j])
+		{
+			j++;
+			if (j == little_len)
+				return ((char *)big + i);
 		}
-	i++;
+		i++;
 	}
-return 0;
+	return (0);
 }

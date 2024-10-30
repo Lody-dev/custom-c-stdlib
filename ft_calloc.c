@@ -1,13 +1,27 @@
-void *ft_calloc(unsigned long elements, unsigned long size){
-unsigned int total_size = (elements * size);
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: viaremko <lodyiaremko@proton.me>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/08 18:19:53 by viaremko          #+#    #+#             */
+/*   Updated: 2024/10/08 18:20:14 by viaremko         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "libft.h"
 
-if num != 0 && total_size/num != size
-		return 0;
-void *ptr = malloc(total_size);
+void	*ft_calloc(size_t elements, size_t size)
+{
+	size_t	total_size;
+	void	*ptr;
 
-if (ptr == 0)
-		return 0;
-
-ft_memset(ptr, 0 ,total_size);
-return ptr;
+	total_size = (elements * size);
+	if (elements != 0 && total_size / elements != size)
+		return (0);
+	ptr = malloc(total_size);
+	if (ptr == 0)
+		return (0);
+	ft_memset(ptr, 0, total_size);
+	return (ptr);
 }

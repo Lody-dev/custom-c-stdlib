@@ -1,20 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: viaremko <lodyiaremko@proton.me>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/11 15:26:10 by viaremko          #+#    #+#             */
-/*   Updated: 2024/09/11 15:30:53 by viaremko         ###   ########.fr       */
+/*   Created: 2024/10/07 19:44:57 by viaremko          #+#    #+#             */
+/*   Updated: 2024/10/07 20:37:12 by viaremko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+int	a_mem(int n)
 {
-	if ((c >= 48 && c <= 57) || (c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+	int	box;
+
+	if (n == 0)
 		return (1);
-	return (0);
+	box = 0;
+	while (n)
+	{
+		n /= 10;
+		box++;
+	}
+	return (box);
+}
+
+char	*ft_itoa(int n)
+{
+	char		*ptr;
+	long int	num;
+	int			box;
+
+	num = n;
+	box = a_mem(num);
+	if (n < 0)
+	{
+		num = -num;
+		box++;
+	}
+	ptr = (char *)malloc(box + 1);
+	if (ptr == NULL)
+		return (NULL);
+	ptr[box] = '\0';
+	while (box > 0)
+	{
+		box--;
+		ptr[box] = num % 10 + '0';
+		num /= 10;
+	}
+	if (n < 0)
+		ptr[0] = '-';
+	return (ptr);
 }

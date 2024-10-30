@@ -9,14 +9,9 @@
 /*   Updated: 2024/09/17 14:08:57 by viaremko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-void *bzero(void *s,  unsigned int n){
-unsigned char *a = s;
-
-
-while(a[i] && i<n){
-a[i] = '\0';
-i++;
-	}
-return(s);
+void	ft_bzero(void *s, size_t n)
+{
+	ft_memset(s, 0, n);
 }

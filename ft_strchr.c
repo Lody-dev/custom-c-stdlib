@@ -9,16 +9,17 @@
 /*   Updated: 2024/09/19 11:28:23 by viaremko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-char *strchr(const char *s, int c){
-unsigned int i = 0;
-while(s[i] != '\0'){
-if (s[i] == c){
-return (char *)&s[i];
-}
-i++;
-}
-if(c=='\0'){
-return (char *)&s[i];
-}
-return NULL;
+#include "libft.h"
+
+char	*ft_strchr(const char *s, int c)
+{
+	while (*s)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	if ((char)c == '\0')
+		return ((char *)s);
+	return (0);
 }

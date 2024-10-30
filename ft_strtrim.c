@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: viaremko <lodyiaremko@proton.me>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/11 15:26:10 by viaremko          #+#    #+#             */
-/*   Updated: 2024/09/11 15:30:53 by viaremko         ###   ########.fr       */
+/*   Created: 2024/10/02 09:03:15 by viaremko          #+#    #+#             */
+/*   Updated: 2024/10/02 09:53:51 by viaremko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-int	ft_isalnum(int c)
+char	*ft_strtrim(const char *s1, const char *set)
 {
-	if ((c >= 48 && c <= 57) || (c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
-	return (0);
+	int		start;
+	int		end;
+	char	*str;
+
+	if (!s1 || !set)
+		return (NULL);
+	start = 0;
+	end = ft_strlen(s1) - 1;
+	while (s1[start] && ft_strchr(set, s1[start]))
+		start++;
+	while (end > start && ft_strchr(set, s1[end]))
+		end--;
+	str = (char *)malloc(end - start + 2);
+	if (!str)
+		return (NULL);
+	ft_strlcpy(str, s1 + start, end - start + 2);
+	return (str);
 }

@@ -3,41 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viaremko <viaremko@student.42malaga.c      +#+  +:+       +#+        */
+/*   By: viaremko <lodyiaremko@proton.me>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/20 11:39:01 by viaremko          #+#    #+#             */
-/*   Updated: 2024/09/20 11:39:21 by viaremko         ###   ########.fr       */
+/*   Created: 2024/10/06 18:46:43 by viaremko          #+#    #+#             */
+/*   Updated: 2024/10/06 19:11:48 by viaremko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	char_to_int(char c)
-{
-	return (c - '0');
-}
+#include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
-	int	result;
-	int	sign;
+	int	res;
+	int	negative;
 
-	result = 0;
-	sign = 1;
-	while (*str == ' ' || (*str >= 9 && *str <= 13))
-	{
+	negative = 1;
+	res = 0;
+	while (*str && (*str == ' ' || *str == '\n' || *str == '\t' || \
+			*str == '\v' || *str == '\f' || *str == '\r'))
 		str++;
-	}
-	while (*str == '-' || *str == '+')
+	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
-		{
-			sign = sign * -1;
-		}
+			negative = -1;
 		str++;
 	}
-	while (*str >= '0' && *str <= '9')
+	while (*str && *str >= '0' && *str <= '9')
 	{
-		result = result * 10 + char_to_int(*str);
+		res = res * 10 + (*str - '0');
 		str++;
 	}
-	result *= sign;
-	return (result);
+	return (res * negative);
 }
