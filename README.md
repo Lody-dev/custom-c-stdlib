@@ -1,10 +1,7 @@
-# Libft - Custom Implementation of the C Standard Library
+# Custom Implementation of the C Standard Library
 
-**Libft** is a project from the **42 School** curriculum that challenges students to reimplement key functions from the C standard library (`libc`). The goal is to build a deep understanding of fundamental concepts in C programming by creating a custom version of commonly used functions. This library will serve as a useful foundation for future 42 projects.
-
-## Project Overview
-
-This project requires the implementation of a set of essential C library functions with a consistent naming convention (`ft_`). These functions cover various tasks such as character checks, string operations, memory manipulation, and conversions. By building these from scratch, students gain a stronger grasp of low-level memory management, algorithmic problem solving, and the inner workings of C.
+A lightweight reimplementation of essential functions from the C standard library .
+The project focuses on understanding how fundamental operations — such as string handling, memory management, and character processing — work under the hood in C.
 
 ## Features
 
@@ -40,12 +37,3 @@ The library includes the following custom implementations of standard C function
 
 ### 4. **Conversion Functions**
 - `ft_atoi` - Converts a string to an integer.
-
-## Purpose of the Project
-
-This project is part of the 42 School program, designed to solidify students’ understanding of fundamental C programming concepts. By re-creating these basic library functions, students develop their ability to:
-- Work with low-level memory operations.
-- Understand how common standard functions are implemented.
-- Create clean, efficient, and reusable code.
-  
-The **Libft** project is a cornerstone of the 42 curriculum, acting as the foundation for more complex projects and ensuring that students have the necessary tools to succeed in future challenges.
